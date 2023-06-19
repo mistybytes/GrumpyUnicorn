@@ -165,4 +165,10 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("GameSaveManager.Instance is null");
         }
     }
+
+    public void GameOver()
+    {
+        GameSaveManager.Instance.ResetGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
