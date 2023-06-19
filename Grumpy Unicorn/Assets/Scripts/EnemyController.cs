@@ -49,9 +49,13 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
-            Debug.Log("Gracz zgin¹³!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            RestartGame();
         }
+    }
+
+    private void RestartGame()
+    {
+        GameSaveManager.Instance.ResetGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

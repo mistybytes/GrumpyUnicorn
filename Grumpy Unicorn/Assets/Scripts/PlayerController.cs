@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            GameSaveManager.Instance.LoadGame(this);
+            LoadGame();
         }
         if (carrotText != null)
         {
@@ -55,8 +56,6 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("carrotText is null");
         }
     }
-
-
 
     private void Update()
     {
@@ -73,8 +72,6 @@ public class PlayerController : MonoBehaviour
         {
             Move();
         }
-
-        UpdateCarrotText();
     }
 
     private void HandleMouseInput()
@@ -117,8 +114,9 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         Vector3 direction = targetPosition - transform.position;
+        direction.y = 0; // Zablokuj ruch wzd³u¿ osi Y
+
         Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-       
 
         Vector3 moveDirection = direction.normalized * moveSpeed * Time.deltaTime;
         characterController.Move(moveDirection);
@@ -132,6 +130,7 @@ public class PlayerController : MonoBehaviour
     public void AddCarrots(int amount)
     {
         carrotsCollected += amount;
+        UpdateCarrotText();
     }
 
     public void UpdateCarrotText()
@@ -139,6 +138,31 @@ public class PlayerController : MonoBehaviour
         if (carrotText != null)
         {
             carrotText.text = "Carrots: " + carrotsCollected;
+        }
+    }
+
+    public void LoadGame()
+    {
+        if (GameSaveManager.Instance != null)
+        {
+            GameSaveManager.Instance.LoadGame(this);
+            UpdateCarrotText();
+        }
+        else
+        {
+            Debug.LogError("GameSaveManager.Instance is null");
+        }
+    }
+
+    public void SaveGame()
+    {
+        if (GameSaveManager.Instance != null)
+        {
+            GameSaveManager.Instance.SaveGame(this);
+        }
+        else
+        {
+            Debug.LogError("GameSaveManager.Instance is null");
         }
     }
 }

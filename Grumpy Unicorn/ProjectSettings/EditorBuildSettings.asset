@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3b1db7ec36edde14d900ffdffb74dcc4
   - enabled: 1
+    path: Assets/Scenes/FARM1.unity
+    guid: f4e5608d74c6dd544bbc20facad3bab2
+  - enabled: 1
     path: Assets/Scenes/SCENE1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/SCENE2.unity
     guid: aeb7bfaae453a2d4481dad10528d5833
+  - enabled: 1
+    path: Assets/Scenes/StoreScene.unity
+    guid: dc5962e30c5078a428f9b8a305a5ace3
   m_configObjects: {}

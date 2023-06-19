@@ -19,9 +19,9 @@ public class GameSaveManager : MonoBehaviour
         }
     }
 
-    public void SaveGame(int carrotsCollected)
+    public void SaveGame(PlayerController playerController)
     {
-        PlayerPrefs.SetInt("Carrots", carrotsCollected);
+        PlayerPrefs.SetInt("Carrots", playerController.CarrotsCollected);
         PlayerPrefs.Save();
     }
 
@@ -30,7 +30,7 @@ public class GameSaveManager : MonoBehaviour
         playerController.CarrotsCollected = PlayerPrefs.GetInt("Carrots", 0);
     }
 
-    public void ResetSave()
+    public void ResetGame()
     {
         PlayerPrefs.DeleteKey("Carrots");
         PlayerPrefs.Save();

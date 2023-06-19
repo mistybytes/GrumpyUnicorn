@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelEnd : MonoBehaviour
 {
-    public int totalCarrotsInLevel;
+    public int requiredCarrots;
     public string nextSceneName;
 
     private void OnTriggerEnter(Collider other)
@@ -13,11 +13,20 @@ public class LevelEnd : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController player = other.GetComponent<PlayerController>();
-            if (player.CarrotsCollected >= totalCarrotsInLevel)
+            if (player.CarrotsCollected < requiredCarrots)
+            {
+                RestartGame();
+            }
+            else
             {
                 SceneManager.LoadScene(nextSceneName);
             }
         }
     }
-}
 
+    private void RestartGame()
+    {
+        GameSaveManager.Instance.ResetGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+}

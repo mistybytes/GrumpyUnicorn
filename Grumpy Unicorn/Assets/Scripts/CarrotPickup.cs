@@ -4,13 +4,29 @@ using UnityEngine;
 
 public class CarrotPickup : MonoBehaviour
 {
+    private bool isCollected = false;
+
+    public void Collect()
+    {
+        isCollected = true;
+    }
+
+    public bool IsCollected()
+    {
+        return isCollected;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerController>().AddCarrots(1);
-            Destroy(gameObject);
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null && !IsCollected())
+            {
+                player.AddCarrots(1);
+                Collect();
+                Destroy(gameObject);
+            }
         }
     }
 }
-
