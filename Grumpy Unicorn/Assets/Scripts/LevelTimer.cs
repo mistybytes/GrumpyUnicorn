@@ -22,4 +22,9 @@ public class LevelTimer : MonoBehaviour
             }
         }
     }
+
+    public void AddTime(float additionalTime)
+    {
+        timeLeft += additionalTime;
+    }
 }

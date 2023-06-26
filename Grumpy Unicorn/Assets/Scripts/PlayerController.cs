@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     public float groundCheckDistance = 0.1f;
     public float minMoveDistance = 0.1f;
     public int carrotsCollected = 0;
+    public bool isInvincible = false;
+
+    public GameObject[] playerSkins; // Tablica przechowuj¹ca ró¿ne skórki gracza
+    private int currentSkinIndex = 0; // Indeks aktualnej skórki
 
     private Vector3 targetPosition;
     private bool isMoving;
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("carrotText is null");
         }
+        SetPlayerSkin(currentSkinIndex); // Inicjalizacja pocz¹tkowej skórki gracza
     }
 
     private void Update()
@@ -170,5 +175,46 @@ public class PlayerController : MonoBehaviour
     {
         GameSaveManager.Instance.ResetGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void StartInvulnerability(float duration)
+    {
+        if (!isInvincible)
+        {
+            StartCoroutine(InvulnerabilityTimer(duration));
+        }
+    }
+
+    private IEnumerator InvulnerabilityTimer(float duration)
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(duration);
+        isInvincible = false;
+    }
+
+    public void ChangePlayerSkin()
+    {
+        currentSkinIndex++;
+        if (currentSkinIndex >= playerSkins.Length)
+        {
+            currentSkinIndex = 0; // Je¿eli przekroczono zakres, wróæ do pierwszej skórki
+        }
+
+        SetPlayerSkin(currentSkinIndex);
+    }
+
+    private void SetPlayerSkin(int skinIndex)
+    {
+        for (int i = 0; i < playerSkins.Length; i++)
+        {
+            if (i == skinIndex)
+            {
+                playerSkins[i].SetActive(true);
+            }
+            else
+            {
+                playerSkins[i].SetActive(false);
+            }
+        }
     }
 }
