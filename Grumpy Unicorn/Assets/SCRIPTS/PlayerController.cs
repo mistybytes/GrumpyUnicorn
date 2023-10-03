@@ -75,15 +75,7 @@ public class PlayerController : MonoBehaviour
         }
 
         float currentSpeed = characterController.velocity.magnitude;
-        if (currentSpeed > 0.1f)
-        {
-            animator.SetInteger("AnimationState", 1);
-        }
-        else
-        {
-            animator.SetInteger("AnimationState", 0);
-        }
-
+        animator.SetFloat("MoveSpeed", currentSpeed);  // Setting the speed value in the animator.
 
         if (isMoving)
         {
