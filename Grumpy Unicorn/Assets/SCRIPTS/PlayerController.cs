@@ -121,22 +121,30 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Move()
+   private void Move()
+{
+    Vector3 direction = targetPosition - transform.position;
+    direction.y = 0;
+
+    // Sprawdzenie, czy różnica między bieżącą pozycją a docelową jest wystarczająco duża
+    if (direction.magnitude < 0.1f)
     {
-        Vector3 direction = targetPosition - transform.position;
-        direction.y = 0;
-
-        Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-
-        Vector3 moveDirection = direction.normalized * moveSpeed * Time.deltaTime;
-        characterController.Move(moveDirection);
-
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-        {
-            isMoving = false;
-        }
+        isMoving = false;
+        targetPosition = transform.position;  // Zresetuj targetPosition
+        characterController.Move(Vector3.zero);  // Zeruj prędkość ruchu
+        animator.SetFloat("MoveSpeed", 0);       // Bezpośrednie ustawienie wartości prędkości na 0 w Animatorze
+        return;
     }
+
+    // Obracanie postaci tylko jeśli się porusza
+    Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+    Vector3 moveDirection = direction.normalized * moveSpeed * Time.deltaTime;
+    characterController.Move(moveDirection);
+}
+
+
 
     public void AddCarrots(int amount)
     {
