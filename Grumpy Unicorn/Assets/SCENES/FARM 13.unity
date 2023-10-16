@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 74ba192084cfde2428e70671c1846f46, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -349,6 +349,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1001 &55929588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -753,6 +756,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &169177145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 6dc168ccb225e594ca30c7c733522273, type: 3}
@@ -1833,6 +1839,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 180
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!136 &413551098
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2030,6 +2039,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &578407304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,6 +2189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 180
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1001 &596625662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2469,6 +2484,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 180
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &655296498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4604,6 +4622,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &1143862690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 6dc168ccb225e594ca30c7c733522273, type: 3}
@@ -4653,6 +4674,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 180
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &1150611455
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,6 +5646,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 180
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &1463991246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5671,6 +5698,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 180
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &1468644458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6742,6 +6772,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &1730212803
 GameObject:
   m_ObjectHideFlags: 0
@@ -7902,6 +7935,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 180
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!136 &1930264608
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7965,6 +8001,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!4 &1959418427
 Transform:
   m_ObjectHideFlags: 0
@@ -8195,6 +8234,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &2034986880
 GameObject:
   m_ObjectHideFlags: 0
@@ -8320,6 +8362,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1001 &2039085490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8492,6 +8537,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 180
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &2085440511
 MonoBehaviour:
   m_ObjectHideFlags: 0

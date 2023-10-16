@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: d20d3a7e3b979ee4e8abcf0d0ff3fa9c, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -313,6 +313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &28463942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +391,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1001 &55929588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -981,6 +987,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &169177145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 6dc168ccb225e594ca30c7c733522273, type: 3}
@@ -2705,6 +2714,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &572548287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3053,6 +3065,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &598738380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4651,6 +4666,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &910276292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5036,6 +5054,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &981340678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5359,6 +5380,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &1145641569
 GameObject:
   m_ObjectHideFlags: 0
@@ -6166,6 +6190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &1407801286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7725,6 +7752,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!114 &1780269762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8579,6 +8609,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &1961624089
 GameObject:
   m_ObjectHideFlags: 0
@@ -8855,6 +8888,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &2034986880
 GameObject:
   m_ObjectHideFlags: 0
@@ -8980,6 +9016,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
+  verticalMovementRange: 0.5
+  verticalMovementSpeed: 1
+  movementAxis: 0
 --- !u!1 &2041029884
 GameObject:
   m_ObjectHideFlags: 0
