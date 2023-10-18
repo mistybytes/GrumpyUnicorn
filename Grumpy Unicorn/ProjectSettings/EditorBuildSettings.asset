@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: Assets/SCENES/FARM 11.unity
     guid: a02e352f64186ed4ebe000e1399be17d
   - enabled: 1
-    path: Assets/SCENES/FARM 22.unity
+    path: Assets/SCENES/FARM 19.unity
     guid: 760d49e7a847cb842a9fb70c7c744754
   - enabled: 1
     path: Assets/SCENES/FARM 13.unity
@@ -57,7 +57,7 @@ EditorBuildSettings:
     path: Assets/SCENES/FARM 15.unity
     guid: 1c6971fc95af7384c8c1c922eb72f177
   - enabled: 1
-    path: Assets/SCENES/FARM 21.unity
+    path: Assets/SCENES/FARM 20.unity
     guid: 7b93b9331f8ad8f4999c48d2b1d2dc5a
   - enabled: 0
     path: 

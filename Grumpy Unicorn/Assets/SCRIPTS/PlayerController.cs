@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public GameObject[] playerSkins;
     private int currentSkinIndex = 0;
 
+    public Joystick moveJoystick;
+
     private Vector3 targetPosition;
     private bool isMoving;
 
@@ -63,88 +65,84 @@ public class PlayerController : MonoBehaviour
         SetPlayerSkin(currentSkinIndex);
     }
 
-    private void Update()
+    Vector3 joystickCenter;
+
+   private void Update()
+{
+    if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
     {
-        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        HandleJoystickMovement();
+    }
+    else
+    {
+        HandleMouseJoystickMovement();
+    }
+
+    float currentSpeed = characterController.velocity.magnitude;
+    animator.SetFloat("MoveSpeed", currentSpeed);  
+
+    if (isMoving)
+    {
+        Move();
+    }
+}
+
+private void HandleJoystickMovement()
+{
+    Vector3 direction = new Vector3(moveJoystick.Horizontal, 0, moveJoystick.Vertical).normalized;
+    if (direction.magnitude >= 0.1f)
+    {
+        targetPosition = transform.position + direction * moveSpeed;
+        isMoving = true;
+    }
+    else
+    {
+        isMoving = false;
+    }
+}
+
+private void HandleMouseJoystickMovement()
+{
+    if (Input.GetMouseButtonDown(0))
+    {
+        joystickCenter = Input.mousePosition;
+    }
+
+    if (Input.GetMouseButton(0))
+    {
+        Vector3 direction = (Input.mousePosition - joystickCenter).normalized;
+        if (direction.magnitude >= 0.1f)
         {
-            HandleTouchInput();
+            targetPosition = transform.position + new Vector3(direction.x, 0, direction.y) * moveSpeed;
+            isMoving = true;
         }
         else
         {
-            HandleMouseInput();
-        }
-
-        float currentSpeed = characterController.velocity.magnitude;
-        animator.SetFloat("MoveSpeed", currentSpeed);  // Setting the speed value in the animator.
-
-        if (isMoving)
-        {
-            Move();
+            isMoving = false;
         }
     }
-
-    private void HandleMouseInput()
-    {
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            SetTargetPosition();
-        }
-    }
-
-    private void HandleTouchInput()
-    {
-        if (Input.touchCount > 0 && EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-        {
-            return;
-        }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            SetTargetPosition();
-        }
-    }
-
-    private void SetTargetPosition()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 100))
-        {
-            targetPosition = hit.point;
-            isMoving = true;
-        }
-    }
-
-   private void Move()
-{
-    Vector3 direction = targetPosition - transform.position;
-    direction.y = 0;
-
-    // Sprawdzenie, czy różnica między bieżącą pozycją a docelową jest wystarczająco duża
-    if (direction.magnitude < 0.1f)
-    {
-        isMoving = false;
-        targetPosition = transform.position;  // Zresetuj targetPosition
-        characterController.Move(Vector3.zero);  // Zeruj prędkość ruchu
-        animator.SetFloat("MoveSpeed", 0);       // Bezpośrednie ustawienie wartości prędkości na 0 w Animatorze
-        return;
-    }
-
-    // Obracanie postaci tylko jeśli się porusza
-    Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-
-    Vector3 moveDirection = direction.normalized * moveSpeed * Time.deltaTime;
-    characterController.Move(moveDirection);
 }
 
+    private void Move()
+    {
+        Vector3 direction = targetPosition - transform.position;
+        direction.y = 0;
 
+        if (direction.magnitude < 0.1f)
+        {
+            isMoving = false;
+            targetPosition = transform.position;  
+            characterController.Move(Vector3.zero);  
+            animator.SetFloat("MoveSpeed", 0);       
+            return;
+        }
+
+        Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+        Vector3 moveDirection = new Vector3(direction.x, 0, direction.z).normalized * moveSpeed * Time.deltaTime;
+        characterController.Move(moveDirection);
+    }
 
     public void AddCarrots(int amount)
     {
